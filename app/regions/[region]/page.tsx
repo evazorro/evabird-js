@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 
 export default async function Page({ params }: { params: { region: string } }) {
     const region = params.region;
@@ -8,8 +9,13 @@ export default async function Page({ params }: { params: { region: string } }) {
         headers: {
             'X-eBirdApiToken': `${apiKey}`,
         },
-    })
+    });
     const result = await response.json();
+
+    if (result.errors) {
+        return <h2 className="p-7">That region does not exist.</h2>
+    }
+
     const dedupedList = Array.from(new Set(result.map(e => e.comName)));
 
     return (

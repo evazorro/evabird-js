@@ -24,7 +24,7 @@ export default function SearchForm() {
                 >
                 Region
                 </label>
-                <div className="flex flex-auto">
+                <div className="flex flex-auto space-x-1">
                     <input
                         onChange={handleRegion}
                         className="flex-auto mr-2 w-auto rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
@@ -40,6 +40,15 @@ export default function SearchForm() {
                             }
                         }>
                         Search
+                    </Button>
+                </div>
+                <div className='pt-4'>
+                    <Button onClick={(e) => {
+                                e.preventDefault();
+                                router.push(`/regions/US-NY-047`);
+                            }
+                        }>
+                        See example
                     </Button>
                 </div>
             </div>
