@@ -1,8 +1,9 @@
 import { Button } from './button';
+import { fetchRecentNotableBirds } from '@/app/actions'
 
 export default function SearchForm() {
     return (
-        <form className="space-y-3">
+        <form action={fetchRecentNotableBirds} className="space-y-3">
             <div className="flex-1 rounded-lg px-6 pb-4">
                 <h1 className="mb-3 text-2xl">Enter your region to see recent notable bird sightings nearby:</h1>
             </div>
