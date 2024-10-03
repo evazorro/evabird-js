@@ -5,7 +5,7 @@ interface Observation {
 }
 
 export default async function Page({ params }: { params: { region: string } }) {
-    const region = params.region;
+    const region = params.region.toUpperCase();
     const apiKey = process.env.EBIRD_API_KEY;
 
     const response = await fetch(`https://api.ebird.org/v2/data/obs/${region}/recent/notable`, {
@@ -21,6 +21,10 @@ export default async function Page({ params }: { params: { region: string } }) {
     }
 
     const dedupedList = Array.from(new Set(result.map((e: Observation) => e.comName)));
+
+    if (!dedupedList.length) {
+        return <h2 className="p-7">No interesting bird sightings reported in this region.</h2> 
+    }
 
     return (
         <main className="pl-12">

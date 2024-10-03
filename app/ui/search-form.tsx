@@ -27,11 +27,11 @@ export default function SearchForm() {
                 <div className="flex flex-auto space-x-1">
                     <input
                         onChange={handleRegion}
-                        className="flex-auto mr-2 w-auto rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+                        className="flex-auto mr-2 w-auto rounded-md border border-gray-200 pl-3 text-sm outline-2 placeholder:text-gray-500"
                         id="region"
                         type="string"
                         name="region"
-                        placeholder="Enter a region code (e.g., US-NY-047)"
+                        placeholder="Enter a region code (e.g., US-NY-047 or US-AZ)"
                         required
                     /> 
                     <Button onClick={(e) => {
