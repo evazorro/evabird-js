@@ -1,5 +1,9 @@
 import { ReactNode } from "react";
 
+interface Observation {
+    comName: string;
+}
+
 export default async function Page({ params }: { params: { region: string } }) {
     const region = params.region;
     const apiKey = process.env.EBIRD_API_KEY;
@@ -16,7 +20,7 @@ export default async function Page({ params }: { params: { region: string } }) {
         return <h2 className="p-7">That region does not exist.</h2>
     }
 
-    const dedupedList = Array.from(new Set(result.map(e => e.comName)));
+    const dedupedList = Array.from(new Set(result.map((e: Observation) => e.comName)));
 
     return (
         <main className="pl-12">
