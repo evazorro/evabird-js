@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { ReactNode } from "react";
 
 export default async function Page({ params }: { params: { region: string } }) {
     const region = params.region;
@@ -20,7 +20,11 @@ export default async function Page({ params }: { params: { region: string } }) {
 
     return (
         <main className="pl-12">
-            <ul className="list-disc">{dedupedList.map(e => <li>{e}</li>) }</ul>
+            <ul className="list-disc">
+                {dedupedList.map((e, index) => (
+                    <li key={index}>{e as ReactNode}</li>
+                ))}
+            </ul>
         </main>
     )
 }
