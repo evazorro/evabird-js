@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
 import '@/app/globals.css';
+import EvabirdLogo from '@/app/ui/evabird-logo';
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -26,6 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <div className="flex flex-col p-6">
+          <div className="flex h-20 shrink-0 items-end rounded-lg bg-pink-900 p-4 md:h-52">
+            <EvabirdLogo />
+          </div>
+        </div>
         {children}
       </body>
     </html>

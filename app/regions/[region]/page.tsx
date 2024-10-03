@@ -13,8 +13,8 @@ export default async function Page({ params }: { params: { region: string } }) {
     const dedupedList = Array.from(new Set(result.map(e => e.comName)));
 
     return (
-        <main>
-            <ul>{dedupedList.map(e => <li>{e}</li>) }</ul>
+        <main className="pl-12">
+            <ul className="list-disc">{dedupedList.map(e => <li>{e}</li>) }</ul>
         </main>
     )
 }
